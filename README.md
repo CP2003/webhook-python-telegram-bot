@@ -1,6 +1,6 @@
-### Whatsapp-X telegram bot
+### webhook-python-telegram-bot
 
-A telegram bot to get whatsapp mod apks
+A example of python-telegram-bot webhook 
 
 ## Setup
 
