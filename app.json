@@ -7,12 +7,13 @@
   "scripts": {},
   "env": {
     "TOKEN": {
+      "description": "Get TOKEN from https://t.me/BotFather ",
       "required": true
     },
     "Webhook_url": {
-      "description": "Add this after deploy eg : https://testwebhook-46698bc2b28d.herokuapp.com/ . you can find your url from app settings",
+      "description": "Add this after deploy eg : https://testapp-46698bc2b28d.herokuapp.com/ . you can find your url from app settings",
       "required": false,
-      "value": "https://testwebhook-46698bc2b28d.herokuapp.com/"
+      "value": "https://testapp-46698bc2b28d.herokuapp.com/"
     }
   },
   "formation": {
