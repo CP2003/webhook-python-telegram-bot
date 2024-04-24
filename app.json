@@ -1,5 +1,8 @@
 {
   "name": "webhook-python-telegram-bot",
+  "logo": "",
+  "keywords": ["python-telegram-bot,webhook"],
+  "repository": "https://github.com/CP2003/webhook-python-telegram-bot",
   "description": "Example webhook telegram bot for heroku using python-telegram-bot",
   "scripts": {},
   "env": {
