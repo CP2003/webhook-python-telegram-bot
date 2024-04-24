@@ -49,7 +49,7 @@ def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f'Update {update} caused error {context.error}')
 
 async def main(update: Update,context: ContextTypes.DEFAULT_TYPE):
-    if Webhook_url:
+    if Webhook_url and Webhook_url != 'False':
         await setwebhhok()
     else:
         print("Webhook url not found , running normal polling....")
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     app.add_handler(CallbackQueryHandler(handle_buttons))
     app.add_error_handler(error)
     print('Polling...')
-    if Webhook_url:
+    if Webhook_url and Webhook_url != 'False':
         app.run_webhook(
             port=PORT,
             listen="0.0.0.0",
