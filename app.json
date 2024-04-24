@@ -1,0 +1,25 @@
+{
+  "name": "webhook-python-telegram-bot",
+  "description": "Example webhook telegram bot for heroku using python-telegram-bot",
+  "scripts": {},
+  "env": {
+    "TOKEN": {
+      "required": true
+    },
+    "Webhook_url": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-22"
+}
