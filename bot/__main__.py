@@ -51,7 +51,7 @@ async def main(update: Update,context: ContextTypes.DEFAULT_TYPE):
     if Webhook_url and Webhook_url != 'False':
         await setwebhhok()
     else:
-        print("Webhook url not found , running normal polling....")
+        print("Webhook url not found , running normal polling....\n\nApp will stop because currently running as web service")
 
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
