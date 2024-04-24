@@ -10,7 +10,7 @@
       "required": true
     },
     "Webhook_url": {
-      "description": "Add this after deploy",
+      "description": "Add this after deploy eg : https://testwebhook-46698bc2b28d.herokuapp.com/ . you can find your url from app settings",
       "required": false,
       "value": "https://testwebhook-46698bc2b28d.herokuapp.com/"
     }
