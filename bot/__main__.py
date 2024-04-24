@@ -8,26 +8,20 @@ filterwarnings(action="ignore", category=DeprecationWarning)
 
 TOKEN = os.environ.get('TOKEN')
 PORT = int(os.environ.get('PORT', '8443'))
-Webhook_url = os.environ.get('Webhook_url')
+Webhook_url = os.environ.get('Webhook_url', False)
 
 
 print('Starting up bot...')
 
 async def setwebhhok():
-    try:
-        await bot.set_webhook(Webhook_url + TOKEN)
-    except Exception as e:
-        print(e)
-async def main(update: Update,context: ContextTypes.DEFAULT_TYPE):
-    await setwebhhok()
-
-
+    try:await bot.set_webhook(Webhook_url + TOKEN)
+    except Exception as e:print(e)
+        
 async def start_command(update: Update, context):
     await update.message.reply_text('Hello there! I\'m a bot. What\'s up?')
   
 def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     update.message.reply_text('Try typing anything, and I will do my best to respond.')
-
 
 async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -44,20 +38,21 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         print("Error while editing message : ",e)
 
-
 async def handle_messages(update: Update,context: ContextTypes.DEFAULT_TYPE):
     text = "Here are some Buttons"
     keyboard = [[InlineKeyboardButton("Button 1", callback_data='1'), InlineKeyboardButton("Button 2", callback_data='2')]]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    try:
-        await context.bot.send_message(chat_id=update.message.chat_id,text=text,reply_markup=reply_markup)
-    except Exception as e:
-        print("Error while sending message : ",e)
-
+    try:await context.bot.send_message(chat_id=update.message.chat_id,text=text,reply_markup=reply_markup)
+    except Exception as e:print("Error while sending message : ",e)
 
 def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f'Update {update} caused error {context.error}')
 
+async def main(update: Update,context: ContextTypes.DEFAULT_TYPE):
+    if Webhook_url:
+        await setwebhhok()
+    else:
+        print("Webhook url not found , running normal polling....")
 
 if __name__ == '__main__':
     app = Application.builder().token(TOKEN).build()
@@ -71,12 +66,15 @@ if __name__ == '__main__':
     app.add_handler(CallbackQueryHandler(handle_buttons))
     app.add_error_handler(error)
     print('Polling...')
-    app.run_webhook(
-        port=PORT,
-        listen="0.0.0.0",
-        webhook_url=Webhook_url
-    )
-
+    if Webhook_url:
+        app.run_webhook(
+            port=PORT,
+            listen="0.0.0.0",
+            webhook_url=Webhook_url
+        )
+    else:
+        app.run_polling(poll_interval=0)
+    
     
 
     
