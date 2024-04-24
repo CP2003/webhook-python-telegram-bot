@@ -12,6 +12,3 @@ COPY bot /app/bot/
 # For example, if you have a requirements.txt file, you can use it like this:
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
-
-
-
