@@ -1,1 +1,1 @@
-web: python captain/__main__.py
+web: python bot/__main__.py
