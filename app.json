@@ -10,8 +10,8 @@
       "required": true
     },
     "Webhook_url": {
-      "description": "Add this after deploy"
-      "required": false
+      "description": "Add this after deploy",
+      "required": false,
       "value": "https://testwebhook-46698bc2b28d.herokuapp.com/"
     }
   },
