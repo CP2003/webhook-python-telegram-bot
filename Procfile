@@ -1,1 +1,1 @@
-web: python bot/__main__.py x
+web: python bot/__main__.py
