@@ -3,7 +3,7 @@ from telegram.ext import ContextTypes , Application , CommandHandler , MessageHa
 import asyncio
 
 import warnings
-filterwarnings(action="ignore", category=DeprecationWarning)
+warnings.filterwarnings(action="ignore", category=DeprecationWarning)
 
 TOKEN = os.environ.get('TOKEN')
 PORT = int(os.environ.get('PORT', '8443'))
