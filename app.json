@@ -2,7 +2,7 @@
   "name": "webhook-python-telegram-bot",
   "logo": "",
   "keywords": ["python-telegram-bot,webhook,heroku"],
-  "repository": "https://github.com/pamodmadubashana/webhook-python-telegram-bot",
+  "repository": "https://github.com/s/webhook-python-telegram-bot",
   "description": "Example webhook telegram bot for heroku using python-telegram-bot",
   "scripts": {},
   "env": {
